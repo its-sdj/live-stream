@@ -6,13 +6,14 @@ pipeline {
         GITHUB_CREDENTIALS = 'github-credentials'
     }
     
-   stage('Checkout') {
-    steps {
-        git credentialsId: 'github-credentials',
-            url: 'https://github.com/its-sdj/live-stream.git',
-            branch: 'master'
-    }
-}
+    stages {
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'github-credentials',
+                    url: 'https://github.com/its-sdj/live-stream.git',
+                    branch: 'master'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
@@ -64,5 +65,4 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-} 
-git credentialsId: 'github-credentials', url: 'https://github.com/its-sdj/live-stream.git', branch: 'master'
+}
