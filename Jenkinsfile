@@ -65,3 +65,4 @@ pipeline {
         }
     }
 } 
+git credentialsId: 'github-credentials', url: 'https://github.com/its-sdj/live-stream.git', branch: 'master'
